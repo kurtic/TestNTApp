@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (5.6.2)
+  - Nuke (9.5.0)
+  - R.swift (5.1.0):
+    - R.swift.Library (~> 5.1.0)
+  - R.swift.Library (5.1.0)
+  - ReactiveCocoa (10.1.0):
+    - ReactiveSwift (~> 6.1)
+  - ReactiveSwift (6.7.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Nuke (~> 9.0)
+  - R.swift (~> 5.1.0)
+  - ReactiveCocoa (~> 10.1.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Nuke
+    - R.swift
+    - R.swift.Library
+    - ReactiveCocoa
+    - ReactiveSwift
+
+SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
+  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
+  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  ReactiveCocoa: 2f1d942d79072eded6d8c3bc7c2a641d40855a56
+  ReactiveSwift: 208201d6ecc9734196d147aa76bc1f24b1b821fe
+
+PODFILE CHECKSUM: ed2be98f80f848961a309f9ca135f0feacd1fcd0
+
+COCOAPODS: 1.11.3
