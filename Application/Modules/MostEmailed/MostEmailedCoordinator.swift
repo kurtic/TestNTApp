@@ -21,12 +21,16 @@ final class MostEmailedCoordinator: Coordinator {
     }
     
     func start(animated: Bool = true) {
-        let mostEmailedVC = UIViewController()
-        mostEmailedVC.view.backgroundColor = .blue
+        let mostEmailedVC = Factory.mostEmailedFactory.makeMostEmailedVC(delegate: self)
         presenter.pushViewController(mostEmailedVC, animated: animated)
     }
     
     func stop(animated: Bool = true) {
         presenter.popViewController(animated: animated)
     }
+}
+
+// MARK: - MostEmailedVMDelegate
+extension MostEmailedCoordinator: MostEmailedVMDelegate {
+    
 }

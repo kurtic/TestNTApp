@@ -24,7 +24,7 @@ final class BaseTabBarVC: UITabBarController {
     // MARK: - GUI
     private func configTabBar() {
         tabBar.backgroundImage = UIImage()
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = .systemGray3
     }
     
     private func setup() {

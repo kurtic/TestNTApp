@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Most EmailedVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MostEmailedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MostEmailedVC" customModule="TestNTApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKV-yP-kpT">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="59"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoK-ck-hNe">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="H1M-HQ-cDa"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Most Emailed" id="Fmz-By-isO"/>
+                                </items>
+                                <navigationBarAppearance key="standardAppearance">
+                                    <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                </navigationBarAppearance>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="i8B-ep-1av">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="F4l-i8-H32"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Dru-FW-xEU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i8B-ep-1av" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5mo-zk-V48"/>
+                            <constraint firstItem="YoK-ck-hNe" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="SDN-KP-6NC"/>
+                            <constraint firstItem="i8B-ep-1av" firstAttribute="top" secondItem="YoK-ck-hNe" secondAttribute="bottom" id="VRC-oz-Vjj"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="i8B-ep-1av" secondAttribute="trailing" id="b0K-mg-xhb"/>
+                            <constraint firstItem="YoK-ck-hNe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="c8M-BL-5RO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="wKV-yP-kpT" secondAttribute="bottom" id="jE7-M5-K6w"/>
+                            <constraint firstItem="YoK-ck-hNe" firstAttribute="top" secondItem="wKV-yP-kpT" secondAttribute="bottom" id="ltw-Pa-BHI"/>
+                            <constraint firstAttribute="trailing" secondItem="wKV-yP-kpT" secondAttribute="trailing" id="mJd-CF-gF6"/>
+                            <constraint firstItem="wKV-yP-kpT" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="o27-6H-P8d"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="i8B-ep-1av" secondAttribute="bottom" id="pQr-5F-1AT"/>
+                            <constraint firstItem="wKV-yP-kpT" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="rtx-QS-phk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="i8B-ep-1av" id="ijq-f6-eps"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

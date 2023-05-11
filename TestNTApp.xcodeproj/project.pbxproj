@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		58135D8F2A0BC547005FDAF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58135D8E2A0BC547005FDAF3 /* ViewController.swift */; };
+		58BF34812A0CD9B800346116 /* ArticleTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BF347F2A0CD9B800346116 /* ArticleTVC.swift */; };
+		58BF34822A0CD9B800346116 /* ArticleTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58BF34802A0CD9B800346116 /* ArticleTVC.xib */; };
 		58C667F02A0B9C6D007445C5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C667EF2A0B9C6D007445C5 /* AppCoordinator.swift */; };
 		58C667F22A0B9F5A007445C5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C667F12A0B9F5A007445C5 /* MainCoordinator.swift */; };
 		58C667F52A0BA099007445C5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C667F42A0BA099007445C5 /* Coordinator.swift */; };
@@ -17,6 +19,16 @@
 		58C668032A0BB449007445C5 /* MostSharedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C668022A0BB449007445C5 /* MostSharedCoordinator.swift */; };
 		58C668052A0BB45C007445C5 /* MostViewedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C668042A0BB45C007445C5 /* MostViewedCoordinator.swift */; };
 		58C668072A0BB46F007445C5 /* FavouriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C668062A0BB46F007445C5 /* FavouriteCoordinator.swift */; };
+		58D40C502A0BF63A00087971 /* MostEmailedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D40C4F2A0BF63A00087971 /* MostEmailedFactory.swift */; };
+		58D40C522A0C157800087971 /* BaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D40C512A0C157800087971 /* BaseFactory.swift */; };
+		58D40C542A0C15E900087971 /* Makeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D40C532A0C15E900087971 /* Makeable.swift */; };
+		58D40C562A0C165F00087971 /* UseCasesConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D40C552A0C165F00087971 /* UseCasesConsumer.swift */; };
+		58D40C592A0C16E800087971 /* NSObject+AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D40C582A0C16E800087971 /* NSObject+AssociatedObject.swift */; };
+		58D40C5C2A0CC8C600087971 /* MostEmailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D40C5B2A0CC8C600087971 /* MostEmailedVC.swift */; };
+		58D40C5F2A0CC8EE00087971 /* MostEmailedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D40C5E2A0CC8EE00087971 /* MostEmailedVM.swift */; };
+		58D40C612A0CC90000087971 /* MostEmailed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D40C602A0CC90000087971 /* MostEmailed.storyboard */; };
+		58D40C642A0CCAF100087971 /* ViewModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D40C632A0CCAF100087971 /* ViewModelContainer.swift */; };
+		58D40C662A0CD0BC00087971 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D40C652A0CD0BC00087971 /* Factory.swift */; };
 		58DD463D2A0A7B6700D6C9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58DD46362A0A7B6700D6C9E0 /* Assets.xcassets */; };
 		58DD463E2A0A7B6700D6C9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58DD46372A0A7B6700D6C9E0 /* LaunchScreen.storyboard */; };
 		58DD463F2A0A7B6700D6C9E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58DD46392A0A7B6700D6C9E0 /* Main.storyboard */; };
@@ -34,6 +46,8 @@
 		10B98296A1B7F6790730E1CF /* Pods-TestNTApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestNTApp.debug.xcconfig"; path = "Target Support Files/Pods-TestNTApp/Pods-TestNTApp.debug.xcconfig"; sourceTree = "<group>"; };
 		58135D8E2A0BC547005FDAF3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Application/ViewController.swift; sourceTree = "<group>"; };
 		586C47F92A0A52F000DDBC16 /* TestNTApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNTApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58BF347F2A0CD9B800346116 /* ArticleTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTVC.swift; sourceTree = "<group>"; };
+		58BF34802A0CD9B800346116 /* ArticleTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTVC.xib; sourceTree = "<group>"; };
 		58C667EF2A0B9C6D007445C5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		58C667F12A0B9F5A007445C5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		58C667F42A0BA099007445C5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -43,6 +57,16 @@
 		58C668022A0BB449007445C5 /* MostSharedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostSharedCoordinator.swift; sourceTree = "<group>"; };
 		58C668042A0BB45C007445C5 /* MostViewedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostViewedCoordinator.swift; sourceTree = "<group>"; };
 		58C668062A0BB46F007445C5 /* FavouriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCoordinator.swift; sourceTree = "<group>"; };
+		58D40C4F2A0BF63A00087971 /* MostEmailedFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostEmailedFactory.swift; sourceTree = "<group>"; };
+		58D40C512A0C157800087971 /* BaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFactory.swift; sourceTree = "<group>"; };
+		58D40C532A0C15E900087971 /* Makeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Makeable.swift; sourceTree = "<group>"; };
+		58D40C552A0C165F00087971 /* UseCasesConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesConsumer.swift; sourceTree = "<group>"; };
+		58D40C582A0C16E800087971 /* NSObject+AssociatedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+AssociatedObject.swift"; sourceTree = "<group>"; };
+		58D40C5B2A0CC8C600087971 /* MostEmailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostEmailedVC.swift; sourceTree = "<group>"; };
+		58D40C5E2A0CC8EE00087971 /* MostEmailedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostEmailedVM.swift; sourceTree = "<group>"; };
+		58D40C602A0CC90000087971 /* MostEmailed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MostEmailed.storyboard; sourceTree = "<group>"; };
+		58D40C632A0CCAF100087971 /* ViewModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelContainer.swift; sourceTree = "<group>"; };
+		58D40C652A0CD0BC00087971 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		58DD46362A0A7B6700D6C9E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58DD46382A0A7B6700D6C9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58DD463A2A0A7B6700D6C9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +128,10 @@
 			children = (
 				58C667F42A0BA099007445C5 /* Coordinator.swift */,
 				58C667F62A0BA468007445C5 /* BaseTabBarVC.swift */,
+				58D40C512A0C157800087971 /* BaseFactory.swift */,
+				58D40C532A0C15E900087971 /* Makeable.swift */,
+				58D40C552A0C165F00087971 /* UseCasesConsumer.swift */,
+				58D40C652A0CD0BC00087971 /* Factory.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -131,7 +159,9 @@
 		58C667FC2A0BB3C3007445C5 /* MostEmailed */ = {
 			isa = PBXGroup;
 			children = (
+				58D40C5A2A0CC88F00087971 /* MostEmailedVC */,
 				58C668002A0BB420007445C5 /* MostEmailedCoordinator.swift */,
+				58D40C4F2A0BF63A00087971 /* MostEmailedFactory.swift */,
 			);
 			path = MostEmailed;
 			sourceTree = "<group>";
@@ -158,6 +188,32 @@
 				58C668062A0BB46F007445C5 /* FavouriteCoordinator.swift */,
 			);
 			path = Favourite;
+			sourceTree = "<group>";
+		};
+		58D40C572A0C16B900087971 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				58D40C582A0C16E800087971 /* NSObject+AssociatedObject.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		58D40C5A2A0CC88F00087971 /* MostEmailedVC */ = {
+			isa = PBXGroup;
+			children = (
+				58D40C5B2A0CC8C600087971 /* MostEmailedVC.swift */,
+				58D40C5E2A0CC8EE00087971 /* MostEmailedVM.swift */,
+				58D40C602A0CC90000087971 /* MostEmailed.storyboard */,
+			);
+			path = MostEmailedVC;
+			sourceTree = "<group>";
+		};
+		58D40C622A0CCAD300087971 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				58D40C632A0CCAF100087971 /* ViewModelContainer.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		58DD46342A0A7B6700D6C9E0 /* Application */ = {
@@ -216,7 +272,10 @@
 		58DD465B2A0AAD9C00D6C9E0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				58D40C622A0CCAD300087971 /* Protocols */,
 				58C667F32A0BA07E007445C5 /* Base */,
+				58BF347F2A0CD9B800346116 /* ArticleTVC.swift */,
+				58BF34802A0CD9B800346116 /* ArticleTVC.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -224,6 +283,7 @@
 		58DD46602A0AB06200D6C9E0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				58D40C572A0C16B900087971 /* Foundation */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +367,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				58DD463D2A0A7B6700D6C9E0 /* Assets.xcassets in Resources */,
+				58BF34822A0CD9B800346116 /* ArticleTVC.xib in Resources */,
+				58D40C612A0CC90000087971 /* MostEmailed.storyboard in Resources */,
 				58DD463F2A0A7B6700D6C9E0 /* Main.storyboard in Resources */,
 				58DD463E2A0A7B6700D6C9E0 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -381,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D40C562A0C165F00087971 /* UseCasesConsumer.swift in Sources */,
 				58DD46572A0AAACB00D6C9E0 /* ArticlesUseCase.swift in Sources */,
 				58C668052A0BB45C007445C5 /* MostViewedCoordinator.swift in Sources */,
 				58DD46502A0AA72D00D6C9E0 /* Platform.swift in Sources */,
@@ -392,12 +455,21 @@
 				58C667F72A0BA468007445C5 /* BaseTabBarVC.swift in Sources */,
 				58135D8F2A0BC547005FDAF3 /* ViewController.swift in Sources */,
 				58C667F52A0BA099007445C5 /* Coordinator.swift in Sources */,
+				58D40C522A0C157800087971 /* BaseFactory.swift in Sources */,
+				58D40C5F2A0CC8EE00087971 /* MostEmailedVM.swift in Sources */,
+				58D40C502A0BF63A00087971 /* MostEmailedFactory.swift in Sources */,
 				58C668072A0BB46F007445C5 /* FavouriteCoordinator.swift in Sources */,
 				58C668012A0BB420007445C5 /* MostEmailedCoordinator.swift in Sources */,
+				58D40C5C2A0CC8C600087971 /* MostEmailedVC.swift in Sources */,
+				58D40C662A0CD0BC00087971 /* Factory.swift in Sources */,
+				58D40C592A0C16E800087971 /* NSObject+AssociatedObject.swift in Sources */,
+				58D40C642A0CCAF100087971 /* ViewModelContainer.swift in Sources */,
+				58BF34812A0CD9B800346116 /* ArticleTVC.swift in Sources */,
 				58DD46412A0A7B6700D6C9E0 /* AppDelegate.swift in Sources */,
 				58C667F02A0B9C6D007445C5 /* AppCoordinator.swift in Sources */,
 				58DD464D2A0A97CA00D6C9E0 /* R.generated.swift in Sources */,
 				58DD46442A0A7CAB00D6C9E0 /* TestNTApp.xcdatamodeld in Sources */,
+				58D40C542A0C15E900087971 /* Makeable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
