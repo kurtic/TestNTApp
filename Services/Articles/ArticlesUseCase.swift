@@ -8,5 +8,5 @@
 import ReactiveSwift
 
 protocol ArticlesUseCase {
-    // TODO
+    func getArticles(flow: ArticlesVM.Flow) -> SignalProducer<[Article], Error>
 }

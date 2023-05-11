@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Most EmailedVC-->
+        <!--ArticlesVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MostEmailedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MostEmailedVC" customModule="TestNTApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticlesVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ArticlesVC" customModule="TestNTApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,21 +20,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="59"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoK-ck-hNe">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="H1M-HQ-cDa"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Most Emailed" id="Fmz-By-isO"/>
-                                </items>
-                                <navigationBarAppearance key="standardAppearance">
-                                    <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                </navigationBarAppearance>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="i8B-ep-1av">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="F4l-i8-H32"/>
@@ -46,16 +33,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="i8B-ep-1av" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5mo-zk-V48"/>
-                            <constraint firstItem="YoK-ck-hNe" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="SDN-KP-6NC"/>
-                            <constraint firstItem="i8B-ep-1av" firstAttribute="top" secondItem="YoK-ck-hNe" secondAttribute="bottom" id="VRC-oz-Vjj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="i8B-ep-1av" secondAttribute="trailing" id="b0K-mg-xhb"/>
-                            <constraint firstItem="YoK-ck-hNe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="c8M-BL-5RO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="wKV-yP-kpT" secondAttribute="bottom" id="jE7-M5-K6w"/>
-                            <constraint firstItem="YoK-ck-hNe" firstAttribute="top" secondItem="wKV-yP-kpT" secondAttribute="bottom" id="ltw-Pa-BHI"/>
                             <constraint firstAttribute="trailing" secondItem="wKV-yP-kpT" secondAttribute="trailing" id="mJd-CF-gF6"/>
                             <constraint firstItem="wKV-yP-kpT" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="o27-6H-P8d"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="i8B-ep-1av" secondAttribute="bottom" id="pQr-5F-1AT"/>
                             <constraint firstItem="wKV-yP-kpT" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="rtx-QS-phk"/>
+                            <constraint firstItem="i8B-ep-1av" firstAttribute="top" secondItem="wKV-yP-kpT" secondAttribute="bottom" id="swg-vq-rRF"/>
                         </constraints>
                     </view>
                     <connections>

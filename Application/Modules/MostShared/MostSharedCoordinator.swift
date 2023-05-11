@@ -21,12 +21,24 @@ final class MostSharedCoordinator: Coordinator {
     }
     
     func start(animated: Bool = true) {
-        let mostSharedVC = UIViewController()
-        mostSharedVC.view.backgroundColor = .red
+        let mostSharedVC = Factory.articleFactory.makeArticlesVC(delegate: self, flow: .mostShared)
         presenter.pushViewController(mostSharedVC, animated: animated)
     }
     
     func stop(animated: Bool = true) {
         presenter.popViewController(animated: animated)
     }
+}
+
+// MARK: - ArticlesVMDelegate
+extension MostSharedCoordinator: ArticlesVMDelegate {
+    func openArticlesDetails(for article: Article) {
+        let articleDetailVC = Factory.articleFactory.makeArticleDetailVC(delegate: self, article: article)
+        presenter.pushViewController(articleDetailVC, animated: true)
+    }
+}
+
+// MARK: - DetailArticleVMDelegate
+extension MostSharedCoordinator: DetailArticleVMDelegate {
+    // TODO
 }

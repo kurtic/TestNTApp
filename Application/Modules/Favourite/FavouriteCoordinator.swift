@@ -21,12 +21,24 @@ final class FavouriteCoordinator: Coordinator {
     }
     
     func start(animated: Bool = true) {
-        let favouriteVC = UIViewController()
-        favouriteVC.view.backgroundColor = .yellow
+        let favouriteVC = Factory.articleFactory.makeArticlesVC(delegate: self, flow: .favourite)
         presenter.pushViewController(favouriteVC, animated: animated)
     }
     
     func stop(animated: Bool = true) {
         presenter.popViewController(animated: animated)
     }
+}
+
+// MARK: - ArticlesVMDelegate
+extension FavouriteCoordinator: ArticlesVMDelegate {
+    func openArticlesDetails(for article: Article) {
+        let articleDetailVC = Factory.articleFactory.makeArticleDetailVC(delegate: self, article: article)
+        presenter.pushViewController(articleDetailVC, animated: true)
+    }
+}
+
+// MARK: - DetailArticleVMDelegate
+extension FavouriteCoordinator: DetailArticleVMDelegate {
+    // TODO
 }

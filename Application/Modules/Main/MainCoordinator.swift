@@ -41,6 +41,7 @@ final class MainCoordinator: Coordinator {
     // MARK: - Private Properties
     private var window: UIWindow?
     private weak var presenter: BaseTabBarVC!
+    private var childCoordinators: [Coordinator] = []
     
     private var selectedTab: TabBarType = .mostEmailed {
         didSet {
@@ -64,6 +65,7 @@ final class MainCoordinator: Coordinator {
     private func setup() {
         let bar = BaseTabBarVC()
         presenter = bar
+        bar.setCoordinator(self)
         window?.rootViewController = bar
         configure()
         window?.makeKeyAndVisible()
@@ -75,6 +77,7 @@ final class MainCoordinator: Coordinator {
         mostEmailedNavigation.tabBarItem = TabBarType.mostEmailed.tabBarItem
         presenter.addChild(mostEmailedNavigation)
         let mostEmailedCoordinator = MostEmailedCoordinator(navContoller: mostEmailedNavigation, useCases: useCases)
+        childCoordinators.append(mostEmailedCoordinator)
         mostEmailedCoordinator.start()
         
         // Most Shared
@@ -82,6 +85,7 @@ final class MainCoordinator: Coordinator {
         mostSharedNavigation.tabBarItem = TabBarType.mostShared.tabBarItem
         presenter.addChild(mostSharedNavigation)
         let mostSharedCoordinator = MostSharedCoordinator(navContoller: mostSharedNavigation, useCases: useCases)
+        childCoordinators.append(mostSharedCoordinator)
         mostSharedCoordinator.start()
         
         // Most Viewed
@@ -89,6 +93,7 @@ final class MainCoordinator: Coordinator {
         mostViewedNavigation.tabBarItem = TabBarType.mostViewed.tabBarItem
         presenter.addChild(mostViewedNavigation)
         let mostViewedCoordinator = MostViewedCoordinator(navContoller: mostViewedNavigation, useCases: useCases)
+        childCoordinators.append(mostViewedCoordinator)
         mostViewedCoordinator.start()
         
         // Favourite
@@ -96,6 +101,7 @@ final class MainCoordinator: Coordinator {
         favouriteNavigation.tabBarItem = TabBarType.favourite.tabBarItem
         presenter.addChild(favouriteNavigation)
         let favouriteCoordinator = FavouriteCoordinator(navContoller: favouriteNavigation, useCases: useCases)
+        childCoordinators.append(favouriteCoordinator)
         favouriteCoordinator.start()
         
         selectedTab = .favourite

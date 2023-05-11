@@ -11,7 +11,6 @@ final class AppCoordinator {
     // MARK: - Properties
     let window = UIWindow(frame: UIScreen.main.bounds)
     private let useCases: UseCasesProvider
-    private lazy var navigationController = UINavigationController()
     
     // MARK: - Life Cycle
     init(useCases: UseCasesProvider) {

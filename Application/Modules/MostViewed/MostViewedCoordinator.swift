@@ -21,8 +21,7 @@ final class MostViewedCoordinator: Coordinator {
     }
     
     func start(animated: Bool = true) {
-        let mostViewedVC = UIViewController()
-        mostViewedVC.view.backgroundColor = .green
+        let mostViewedVC = Factory.articleFactory.makeArticlesVC(delegate: self, flow: .mostViewed)
         presenter.pushViewController(mostViewedVC, animated: animated)
     }
     
@@ -31,3 +30,15 @@ final class MostViewedCoordinator: Coordinator {
     }
 }
 
+// MARK: - ArticlesVMDelegate
+extension MostViewedCoordinator: ArticlesVMDelegate {
+    func openArticlesDetails(for article: Article) {
+        let articleDetailVC = Factory.articleFactory.makeArticleDetailVC(delegate: self, article: article)
+        presenter.pushViewController(articleDetailVC, animated: true)
+    }
+}
+
+// MARK: - DetailArticleVMDelegate
+extension MostViewedCoordinator: DetailArticleVMDelegate {
+    // TODO
+}
