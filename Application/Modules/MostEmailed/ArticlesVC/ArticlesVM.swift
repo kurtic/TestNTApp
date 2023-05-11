@@ -23,13 +23,14 @@ final class ArticlesVM: UseCasesConsumer {
     
     // MARK: - Actions
     private(set) lazy var getArticles = Action(execute: useCases.articles.getArticles)
+    private(set) lazy var getSavedArticles = Action(execute: useCases.articles.getSavedArticles)
     
     // MARK: - Life Cycle
     init(useCases: UseCases, delegate: ArticlesVMDelegate, flow: Flow) {
         self.useCases = useCases
         self.delegate = delegate
         self.flow = flow
-        articles <~ getArticles.values
+        articles <~ getArticles.values.merge(with: getSavedArticles.values)
     }
     
     func openArticleDetails(for article: Article) {

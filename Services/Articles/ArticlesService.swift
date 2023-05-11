@@ -7,12 +7,13 @@
 
 import ReactiveSwift
 import Alamofire
+import CoreData
 
 final class ArticlesService: ArticlesUseCase {
 
     private enum C {
         static var token = "ZKKdFq0OwHtX7gtGRDagcq3yUcJRo5lw"
-        static let parameters = ["api-key": "ZKKdFq0OwHtX7gtGRDagcq3yUcJRo5lw"]
+        static let parameters = ["api-key": token]
         static func urlString(for flow: ArticlesVM.Flow) -> String {
             switch flow {
             case .mostEmailed:
@@ -26,6 +27,11 @@ final class ArticlesService: ArticlesUseCase {
             }
         }
     }
+    
+    private lazy var context: NSManagedObjectContext = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }()
 
     
     func getArticles(flow: ArticlesVM.Flow) -> SignalProducer<[Article], Error> {
@@ -49,5 +55,39 @@ final class ArticlesService: ArticlesUseCase {
                 request.cancel()
             }
         }
+    }
+    
+    func saveArticle(article: Article) -> SignalProducer<Article, Error> {
+        SignalProducer { [unowned self] (observer, lifetime) in
+            do {
+                let fetchRequest = ArticleEntity.fetchRequest()
+                fetchRequest.predicate = ArticleEntity.findByIdPredicate(article.id)
+                fetchRequest.fetchLimit = 1
+                let storedArticles = try context.fetch(fetchRequest)
+                if storedArticles.isEmpty {
+                    let articleEntity = ArticleEntity(context: self.context)
+                    articleEntity.setValues(from: article)
+                    try context.save()
+                    observer.send(value: article)
+                    observer.sendCompleted()
+                }
+            } catch {
+                observer.send(error: error)
+            }
+        }
+        .observe(on: UIScheduler())
+    }
+    
+    func getSavedArticles() -> SignalProducer<[Article], Error> {
+        SignalProducer { [unowned self] (observer, lifetime) in
+            do {
+               let articleEntities = try context.fetch(ArticleEntity.fetchRequest())
+                observer.send(value: articleEntities.map { Article(from: $0)})
+                observer.sendCompleted()
+            } catch {
+                observer.send(error: error)
+            }
+        }
+        .observe(on: UIScheduler())
     }
 }

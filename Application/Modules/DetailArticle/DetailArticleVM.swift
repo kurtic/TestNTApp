@@ -17,6 +17,8 @@ final class DetailArticleVM: UseCasesConsumer {
     // MARK: - Private Properties
     private weak var delegate: DetailArticleVMDelegate?
     
+    private(set) lazy var saveArticleAction = Action(execute: useCases.articles.saveArticle)
+    
     // MARK: - Public Properties
     let article = MutableProperty<Article?>(nil)
     

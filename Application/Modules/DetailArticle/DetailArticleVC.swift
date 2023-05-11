@@ -13,42 +13,60 @@ extension DetailArticleVC: Makeable {
 }
 
 final class DetailArticleVC: BaseVC, ViewModelContainer {
+    
+    private enum C {
+        static let getHTMLString = "document.documentElement.outerHTML"
+        static let saveButtonTitle = "Save"
+    }
+    
     // MARK: - IBOutlets
     @IBOutlet private weak var webView: WKWebView!
+    
+    // MARK: - Private Properties
+    private lazy var saveButton = UIBarButtonItem(title: C.saveButtonTitle,
+                                                  style: .plain,
+                                                  target: self,
+                                                  action: #selector(saveTapped))
     
     // MARK: - Life Cycle
     func didSetViewModel(_ viewModel: DetailArticleVM, lifetime: Lifetime) {
         setupWebView(with: viewModel.article.value?.url)
-        
+        if viewModel.article.value?.isSaved == false {
+            navigationItem.rightBarButtonItem = saveButton
+        }
     }
     
-    func getHTML(_ completion: @escaping (String) -> ()) {
-        webView.evaluateJavaScript("document.documentElement.outerHTML") { (html, error) in
-            guard let html = html as? String else {
-                print(error)
-                return
-            }
+    private func getHTML(_ completion: @escaping (String) -> ()) {
+        webView.evaluateJavaScript(C.getHTMLString) { (html, error) in
+            guard let html = html as? String else { return }
             completion(html)
         }
     }
     
-    func setupWebView(with urlString: String?) {
-        guard let urlString = urlString, let url = URL(string: urlString) else { return }
+    private func setupWebView(with urlString: String?) {
         webView.navigationDelegate = self
-        let request = URLRequest(url: url)
-        webView.load(request)
-//        getHTML { htmlSring in
-//            print(htmlSring)
-//        }
+        if viewModel.article.value?.isSaved == true {
+            guard let urlString = viewModel.article.value?.html else { return }
+            webView.loadHTMLString(urlString, baseURL: nil)
+        } else {
+            guard let urlString = urlString, let url = URL(string: urlString) else { return }
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
     }
     
-    @IBAction private func saveTapped(_ sender: Any) {
-        getHTML { htmlSring in
-            print(htmlSring)
+    //MARK: - Actions
+    @objc private func saveTapped() {
+        getHTML { [weak self] htmlSring in
+            self?.viewModel.article.value?.html = htmlSring
+            if let article = self?.viewModel.article.value {
+                self?.viewModel.saveArticleAction.apply(article).start()
+            }
         }
     }
 }
 
+// MARK: - WKNavigationDelegate
 extension DetailArticleVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         startShowingActivity()

@@ -20,7 +20,15 @@ final class ArticlesVC: BaseVC, ViewModelContainer {
     func didSetViewModel(_ viewModel: ArticlesVM, lifetime: Lifetime) {
         title = viewModel.flow.title
         tableView.registerNib(for: ArticleTVC.self)
-        viewModel.getArticles.apply(viewModel.flow).start()
+        
+        reactive.makeBindingTarget { vc, _ in
+            if viewModel.flow == .favourite {
+                viewModel.getSavedArticles.apply().start()
+            } else {
+                viewModel.getArticles.apply(viewModel.flow).start()
+            }
+        } <~ reactive.viewWillAppear
+        
         tableView.reactive.reloadData <~ viewModel.articles.map { _ in }
         
         reactive.makeBindingTarget { vc, isExecuting in
@@ -29,7 +37,7 @@ final class ArticlesVC: BaseVC, ViewModelContainer {
             } else {
                 vc.stopShowingActivity()
             }
-        } <~ viewModel.getArticles.isExecuting
+        } <~ viewModel.getArticles.isExecuting.or(viewModel.getSavedArticles.isExecuting)
     }
 }
 
