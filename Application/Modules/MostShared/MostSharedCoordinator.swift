@@ -37,8 +37,3 @@ extension MostSharedCoordinator: ArticlesVMDelegate {
         presenter.pushViewController(articleDetailVC, animated: true)
     }
 }
-
-// MARK: - DetailArticleVMDelegate
-extension MostSharedCoordinator: DetailArticleVMDelegate {
-    // TODO
-}

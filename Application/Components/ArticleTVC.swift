@@ -7,14 +7,7 @@
 
 import UIKit
 
-protocol ArticleTVCDelegate: AnyObject {
-    //TODO
-}
-
 final class ArticleTVC: UITableViewCell {
-    
-    // MARK: - Private Properties
-    private weak var delegate: ArticleTVCDelegate?
     
     // MARK: - IBOutlets
     @IBOutlet private weak var titleLabel: UILabel!
@@ -22,7 +15,7 @@ final class ArticleTVC: UITableViewCell {
     @IBOutlet private weak var bylineLabel: UILabel!
     
     // MARK: - Configure
-    func configure(delegate: ArticleTVCDelegate, article: Article) {
+    func configure(article: Article) {
         titleLabel.text = article.title
         descriptionLabel.text = article.description
         bylineLabel.text = article.byline

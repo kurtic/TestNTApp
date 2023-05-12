@@ -20,9 +20,9 @@ final class ArticleFactory: BaseFactory {
         }
     }
      
-    func makeArticleDetailVC<T: Coordinator & DetailArticleVMDelegate>(delegate: T, article: Article) -> DetailArticleVC {
+    func makeArticleDetailVC<T: Coordinator>(delegate: T, article: Article) -> DetailArticleVC {
         makeController(delegate) {
-            $0.viewModel = DetailArticleVM(delegate: delegate, useCases: delegate.useCases, article: article)
+            $0.viewModel = DetailArticleVM(useCases: delegate.useCases, article: article)
         }
     }
 }

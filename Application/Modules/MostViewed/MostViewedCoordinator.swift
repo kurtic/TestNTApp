@@ -37,8 +37,3 @@ extension MostViewedCoordinator: ArticlesVMDelegate {
         presenter.pushViewController(articleDetailVC, animated: true)
     }
 }
-
-// MARK: - DetailArticleVMDelegate
-extension MostViewedCoordinator: DetailArticleVMDelegate {
-    // TODO
-}

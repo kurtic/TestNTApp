@@ -58,24 +58,22 @@ final class ArticlesService: ArticlesUseCase {
     }
     
     func saveArticle(article: Article) -> SignalProducer<Article, Error> {
-        SignalProducer { [unowned self] (observer, lifetime) in
-            do {
-                let fetchRequest = ArticleEntity.fetchRequest()
-                fetchRequest.predicate = ArticleEntity.findByIdPredicate(article.id)
-                fetchRequest.fetchLimit = 1
-                let storedArticles = try context.fetch(fetchRequest)
-                if storedArticles.isEmpty {
-                    let articleEntity = ArticleEntity(context: self.context)
-                    articleEntity.setValues(from: article)
-                    try context.save()
-                    observer.send(value: article)
-                    observer.sendCompleted()
+        isAlreadySaved(articleId: article.id)
+            .flatMap(.latest) { isAlreadySaved in
+                SignalProducer { [unowned self] (observer, lifetime) in
+                    if !isAlreadySaved {
+                        let articleEntity = ArticleEntity(context: self.context)
+                        articleEntity.setValues(from: article)
+                        do {
+                            try context.save()
+                            observer.send(value: article)
+                            observer.sendCompleted()
+                        } catch {
+                           observer.send(error: error)
+                       }
+                    }
                 }
-            } catch {
-                observer.send(error: error)
             }
-        }
-        .observe(on: UIScheduler())
     }
     
     func getSavedArticles() -> SignalProducer<[Article], Error> {
@@ -88,6 +86,38 @@ final class ArticlesService: ArticlesUseCase {
                 observer.send(error: error)
             }
         }
+    }
+    
+    func deleteArticle(articleId: Int64) -> SignalProducer<Void, Error> {
+        SignalProducer { [unowned self] (observer, lifetime) in
+            let fetchRequest = ArticleEntity.fetchRequest()
+            fetchRequest.predicate = ArticleEntity.findByIdPredicate(articleId)
+            fetchRequest.fetchLimit = 1
+            do {
+                if let storedArticle = try context.fetch(fetchRequest).first {
+                    context.delete(storedArticle)
+                }
+                observer.send(value: ())
+                observer.sendCompleted()
+            } catch {
+                observer.send(error: error)
+            }
+        }
         .observe(on: UIScheduler())
+    }
+    
+    func isAlreadySaved(articleId: Int64) -> SignalProducer<Bool, Error> {
+        SignalProducer { [unowned self] (observer, lifetime) in
+            let fetchRequest = ArticleEntity.fetchRequest()
+            fetchRequest.predicate = ArticleEntity.findByIdPredicate(articleId)
+            fetchRequest.fetchLimit = 1
+            do {
+                let storedArticles = try context.fetch(fetchRequest)
+                observer.send(value: !storedArticles.isEmpty)
+                observer.sendCompleted()
+            } catch {
+                observer.send(error: error)
+            }
+        }
     }
 }

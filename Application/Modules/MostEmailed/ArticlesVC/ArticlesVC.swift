@@ -49,16 +49,11 @@ extension ArticlesVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ArticleTVC.self)) as? ArticleTVC else { return UITableViewCell() }
-        cell.configure(delegate: self, article: viewModel.articles.value[indexPath.row])
+        cell.configure(article: viewModel.articles.value[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.openArticleDetails(for: viewModel.articles.value[indexPath.row])
     }
-}
-
-// MARK: - ArticleTVCDelegate
-extension ArticlesVC: ArticleTVCDelegate {
-    // TODO
 }

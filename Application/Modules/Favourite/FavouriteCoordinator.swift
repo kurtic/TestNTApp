@@ -37,8 +37,3 @@ extension FavouriteCoordinator: ArticlesVMDelegate {
         presenter.pushViewController(articleDetailVC, animated: true)
     }
 }
-
-// MARK: - DetailArticleVMDelegate
-extension FavouriteCoordinator: DetailArticleVMDelegate {
-    // TODO
-}

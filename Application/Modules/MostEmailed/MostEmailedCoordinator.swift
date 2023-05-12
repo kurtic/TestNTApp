@@ -20,10 +20,6 @@ final class MostEmailedCoordinator: Coordinator {
         self.presenter = navContoller
     }
     
-    deinit {
-       print("deinited")
-    }
-    
     func start(animated: Bool = true) {
         let articlesVC = Factory.articleFactory.makeArticlesVC(delegate: self, flow: .mostEmailed)
         presenter.pushViewController(articlesVC, animated: animated)
@@ -40,9 +36,4 @@ extension MostEmailedCoordinator: ArticlesVMDelegate {
         let articleDetailVC = Factory.articleFactory.makeArticleDetailVC(delegate: self, article: article)
         presenter.pushViewController(articleDetailVC, animated: true)
     }
-}
-
-// MARK: - DetailArticleVMDelegate
-extension MostEmailedCoordinator: DetailArticleVMDelegate {
-    // TODO
 }
